@@ -1,13 +1,13 @@
 <template>
   <div class="grid grid-cols-1 xl:grid-cols-1 gap-2 contributors max-h-[36vh] overflow-scroll grid-flow-row-dense">
-    <div v-for="image in trackLists" :key="image.id" class="cursor-pointer flex space-x-2 items-center hover:translate-x-3 hover:scale-105 transition duration-200 ease-in-out">
-      <img :src="image.img" alt="" class="contributors rounded-full w-[40px] h-[40px] border-2 border-gray-100" />
+    <div v-for="team in teams" :key="team._id" class="cursor-pointer flex space-x-2 items-center hover:translate-x-3 hover:scale-105 transition duration-200 ease-in-out">
+      <img :src="team.profile_image" alt="" class="contributors rounded-full w-[40px] h-[40px] border-2 border-gray-100" />
       <div>
         <p class="text-[10px] text-white pt-1 font-semibold whitespace-normal capitalize">
-          {{ image.contributorName }}
+          {{ team.name }}
         </p>
         <p class="text-[8px] text-gray-100 font-light whitespace-normal capitalize">
-          {{ image.contributorRole.toLowerCase() }}
+          {{ team.about }}
         </p>
       </div>
     </div>
@@ -18,6 +18,7 @@
     name: 'Contributors',
     props: {
       trackLists: {},
+      teams: {},
     },
   };
 </script>
